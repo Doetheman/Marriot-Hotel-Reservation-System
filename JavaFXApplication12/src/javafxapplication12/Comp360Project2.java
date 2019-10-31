@@ -3,10 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package javafxapplication12;
+package comp360project2;
 
 import javafx.application.Application;
-import static javafx.application.Application.launch;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
@@ -16,16 +15,16 @@ import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
-import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import javafx.scene.layout.VBox;
 
 /**
  *
  * @author Oluchi
  */
-public class JavaFXApplication12 extends Application {
+public class Comp360Project2 extends Application {
     
-     //Title Marriott Systems
+    //Title Marriott Systems
     private Label ProjectTitileLabel = new Label ("Marriot Hotel Reservation System ");
  //---------------------------------------     
     //Name Label 
@@ -65,7 +64,7 @@ public class JavaFXApplication12 extends Application {
 //                System.out.println("Hello World!");
 //            }
 //        });
-        HBox entireThing = new HBox();
+        VBox entireThing = new VBox();
         HBox top = new HBox(); 
         HBox sec1 = new HBox();
         VBox sec2 = new VBox();
