@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package comp360project2;
+package javafxapplication12;
 
+import java.text.ParseException;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -93,6 +94,9 @@ public class Comp360Project2 extends Application {
      */
     public static void main(String[] args) {
         launch(args);
+      System.out.println("hello");
+        StandardRoom rm = new StandardRoom();
+        rm.StandardRoom("Dorian",true, "11/1/2019", "11/2/2019");
     }
     
 }

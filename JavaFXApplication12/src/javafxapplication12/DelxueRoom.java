@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package comp360project2;
+package javafxapplication12;
 
 /**
  *
  * @author Oluchi
  */
-public class DelxueRoom {
+public class DelxueRoom extends StandardRoom{
     
 }

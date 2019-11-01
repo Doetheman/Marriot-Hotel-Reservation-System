@@ -3,12 +3,17 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package comp360project2;
+package javafxapplication12;
 
 /**
  *
  * @author Oluchi
  */
-public class JuniorRoom {
+public class JuniorRoom extends StandardRoom {
+    public void juniorRoom(){
+        StandardRoom sR = new StandardRoom();
+        sR.setPrice();
+        sR.ReserveRoom();
+    }
     
 }
