@@ -94,9 +94,9 @@ public class Comp360Project2 extends Application {
      */
     public static void main(String[] args) {
         launch(args);
-      System.out.println("hello");
+        System.out.println("hello");
         StandardRoom rm = new StandardRoom();
-        rm.StandardRoom("Dorian",true, "11/1/2019", "11/2/2019");
+        rm.StandardRoom("Dorian",true, "11/01/2019", "11/02/2019");
     }
     
 }
