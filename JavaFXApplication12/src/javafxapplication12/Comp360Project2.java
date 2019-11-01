@@ -34,7 +34,7 @@ public class Comp360Project2 extends Application {
     private TextField nameInput = new TextField ();
  //---------------------------------------   
     
-    //Select what roomn type Label 
+    //Select what room type Label 
      private Label roomSelectionLabel = new Label ("Select which room want?");
     //A radio button with the specified label
      private RadioButton standRoomRB = new RadioButton("Stand Room");  
@@ -48,23 +48,25 @@ public class Comp360Project2 extends Application {
     // RadioButton 
  //---------------------------------------
     //Submit 
-     Button submitButton = new Button("Submit");
+     private Button submitButton = new Button("Submit");
      
     // Results label 
-     private Label results = new Label ("");
+     private Label results = new Label ("results");
+ 
      
      
     @Override
     public void start(Stage primaryStage) {
-        Button btn = new Button();
-//        btn.setText("Say 'Hello World'");
-//        btn.setOnAction(new EventHandler<ActionEvent>() {
-//            
-//            @Override
-//            public void handle(ActionEvent event) {
-//                System.out.println("Hello World!");
-//            }
-//        });
+        //results hidden still reservation has been made
+        getResults().setVisible(false);
+        getSubmitButton().setOnAction(new EventHandler<ActionEvent>() {
+      
+            @Override
+            public void handle(ActionEvent event) {
+                getResults().setVisible(true);
+                System.out.println("Hello World!");
+            }
+        });
         VBox entireThing = new VBox();
         HBox top = new HBox(); 
         HBox sec1 = new HBox();
@@ -72,11 +74,12 @@ public class Comp360Project2 extends Application {
         HBox sec3 = new HBox();
         HBox bottom = new HBox();
         
-        top.getChildren().addAll(ProjectTitileLabel);
-        sec1.getChildren().addAll(usersNameLabel,nameInput);
-        sec2.getChildren().addAll(roomSelectionLabel,standRoomRB,deluxeRB, juniorRoomRB);
-        sec3.getChildren().addAll(safeLabel,safeRB);
-        bottom.getChildren().addAll(submitButton,results);
+        top.getChildren().addAll(getProjectTitileLabel());
+        sec1.getChildren().addAll(getUsersNameLabel(), getNameInput());
+        sec2.getChildren().addAll(getRoomSelectionLabel(), getStandRoomRB(), getDeluxeRB(), getJuniorRoomRB());
+        sec3.getChildren().addAll(getSafeLabel(), getSafeRB());
+        bottom.getChildren().addAll(getSubmitButton());
+        bottom.getChildren().addAll(getResults());
         entireThing.getChildren().addAll(top,sec1,sec2,sec3,bottom);
         
         StackPane root = new StackPane();
@@ -97,6 +100,160 @@ public class Comp360Project2 extends Application {
       System.out.println("hello");
         StandardRoom rm = new StandardRoom();
         rm.StandardRoom("Dorian",true, "11/1/2019", "11/2/2019");
+    }
+
+    /**
+     * @return the ProjectTitileLabel
+     */
+    public Label getProjectTitileLabel() {
+        return ProjectTitileLabel;
+    }
+
+    /**
+     * @param ProjectTitileLabel the ProjectTitileLabel to set
+     */
+    public void setProjectTitileLabel(Label ProjectTitileLabel) {
+        this.ProjectTitileLabel = ProjectTitileLabel;
+    }
+
+    /**
+     * @return the usersNameLabel
+     */
+    public Label getUsersNameLabel() {
+        return usersNameLabel;
+    }
+
+    /**
+     * @param usersNameLabel the usersNameLabel to set
+     */
+    public void setUsersNameLabel(Label usersNameLabel) {
+        this.usersNameLabel = usersNameLabel;
+    }
+
+    /**
+     * @return the nameInput
+     */
+    public TextField getNameInput() {
+        return nameInput;
+    }
+
+    /**
+     * @param nameInput the nameInput to set
+     */
+    public void setNameInput(TextField nameInput) {
+        this.nameInput = nameInput;
+    }
+
+    /**
+     * @return the roomSelectionLabel
+     */
+    public Label getRoomSelectionLabel() {
+        return roomSelectionLabel;
+    }
+
+    /**
+     * @param roomSelectionLabel the roomSelectionLabel to set
+     */
+    public void setRoomSelectionLabel(Label roomSelectionLabel) {
+        this.roomSelectionLabel = roomSelectionLabel;
+    }
+
+    /**
+     * @return the standRoomRB
+     */
+    public RadioButton getStandRoomRB() {
+        return standRoomRB;
+    }
+
+    /**
+     * @param standRoomRB the standRoomRB to set
+     */
+    public void setStandRoomRB(RadioButton standRoomRB) {
+        this.standRoomRB = standRoomRB;
+    }
+
+    /**
+     * @return the deluxeRB
+     */
+    public RadioButton getDeluxeRB() {
+        return deluxeRB;
+    }
+
+    /**
+     * @param deluxeRB the deluxeRB to set
+     */
+    public void setDeluxeRB(RadioButton deluxeRB) {
+        this.deluxeRB = deluxeRB;
+    }
+
+    /**
+     * @return the juniorRoomRB
+     */
+    public RadioButton getJuniorRoomRB() {
+        return juniorRoomRB;
+    }
+
+    /**
+     * @param juniorRoomRB the juniorRoomRB to set
+     */
+    public void setJuniorRoomRB(RadioButton juniorRoomRB) {
+        this.juniorRoomRB = juniorRoomRB;
+    }
+
+    /**
+     * @return the safeLabel
+     */
+    public Label getSafeLabel() {
+        return safeLabel;
+    }
+
+    /**
+     * @param safeLabel the safeLabel to set
+     */
+    public void setSafeLabel(Label safeLabel) {
+        this.safeLabel = safeLabel;
+    }
+
+    /**
+     * @return the safeRB
+     */
+    public RadioButton getSafeRB() {
+        return safeRB;
+    }
+
+    /**
+     * @param safeRB the safeRB to set
+     */
+    public void setSafeRB(RadioButton safeRB) {
+        this.safeRB = safeRB;
+    }
+
+    /**
+     * @return the submitButton
+     */
+    public Button getSubmitButton() {
+        return submitButton;
+    }
+
+    /**
+     * @param submitButton the submitButton to set
+     */
+    public void setSubmitButton(Button submitButton) {
+        this.submitButton = submitButton;
+    }
+
+    /**
+     * @return the results
+     */
+    public Label getResults() {
+        return results;
+    }
+
+    /**
+     * @param results the results to set
+     */
+    public void setResults(Label results) {
+        this.results = results;
     }
     
 }
