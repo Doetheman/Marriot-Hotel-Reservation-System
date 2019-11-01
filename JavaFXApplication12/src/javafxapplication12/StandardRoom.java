@@ -3,11 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
 package javafxapplication12;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;  
+import java.util.Arrays;
 import java.util.Date;
+import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -26,27 +29,30 @@ public class StandardRoom {
    public int roomNumber;
    
    public void StandardRoom(String name, boolean safe, String arrival, String departure){
+       this.setRooms(rooms);
        this.setName(name);
        this.setSelectedRoomType("Standard Room");
        this.setPrice();
        this.setSafe(safe);
        this.setArrival(arrival);
        this.setDeparture(departure);
+       this.ReserveRoom();
        calculateNights(100);
        Display();
    }
    public void ReserveRoom(){
-      for(int i=1; i< 46; i++){
-          if(!rooms[i]){
+      for(int i=0; i< 15; i++){
+          if(!this.rooms[i]){
               rooms[i] = true;
-              setRoomNumber(i);
+              setRoomNumber(i++);
               break;
           }
       }
    }
    
    public void calculateNights(int charge){
-       int nights = (int) (departure.getTime() - arrival.getTime());
+        long diff = departure.getTime() - arrival.getTime();
+        int nights = (int) TimeUnit.DAYS.convert(diff, TimeUnit.MILLISECONDS);
        if(nights>24){
            nights = nights/24;
        } else {
@@ -55,11 +61,19 @@ public class StandardRoom {
        price =+ charge*nights;
    }
    
+   public void setRooms( boolean[]rooms){
+       rooms = new boolean[15];
+       for(int i=0;i<15;i++){
+           rooms[i] = false;
+       }
+       this.rooms = rooms;
+   }
+   
    public void setDeparture(String date){
        try {
            departure =new SimpleDateFormat("dd/MM/yyyy").parse(date);
        } catch (ParseException ex) {
-           Logger.getLogger(StandardRoom.class.getName()).log(Level.SEVERE, null, ex);
+           System.out.println(ex);
        }
    }
    
@@ -71,7 +85,7 @@ public class StandardRoom {
        try {
            arrival =new SimpleDateFormat("dd/MM/yyyy").parse(date);
        } catch (ParseException ex) {
-           Logger.getLogger(StandardRoom.class.getName()).log(Level.SEVERE, null, ex);
+           System.out.println(ex);
        }
    }
    
