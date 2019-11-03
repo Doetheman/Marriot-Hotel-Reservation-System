@@ -19,9 +19,16 @@ public class DelxueRoom extends StandardRoom{
         this.setDeparture(departure);
         calculateNights(160);
     }
+  
      @Override
      void Display(){
        int price = calculateNights(160);
        System.out.println(name + "/n " + price + "/n "+ selectedRoomType + "/n "+ roomNumber);
    }
+     String results(){
+         int price = calculateNights(160);
+         String stringPrice = Integer.toString(price);
+         String newResults = stringPrice + "/n " + roomNumber;
+         return newResults;
+    }   
 }

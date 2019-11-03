@@ -67,6 +67,18 @@ public class Comp360Project2 extends Application {
 
             @Override
             public void handle(ActionEvent event) {
+                  if ((nameInput.getText() != null && arrivalDate.getText()!= null &&  departureDate.getText()!= null)) {
+                        results.setText(
+                                         "Name:" +  nameInput.getText() + "\n" +
+                                         "Arrival Date: " + arrivalDate.getText() +  "\n" +
+                                         "Departure Date: " +   departureDate.getText() + "\n" +
+                                         determineRoom()
+                                         );
+                   } else {
+                        results.setText("You have not left a comment.");
+                   }
+                
+                
                 determineRoom();
               // results.setText();
             }
@@ -86,7 +98,8 @@ public class Comp360Project2 extends Application {
         sec2.getChildren().addAll(getRoomSelectionLabel(), getStandRoomRB(), getDeluxeRB(), getJuniorRoomRB());
         sec3.getChildren().addAll(getSafeLabel(), getSafeRB());
         sec4.getChildren().addAll(getArriveLabel(), getArrivalDate(), getDepartureLabel(), getDepartureDate());
-        bottom.getChildren().addAll(getSubmitButton(), getResults());
+        bottom.getChildren().addAll(getSubmitButton());
+        bottom.getChildren().addAll(getResults());
         entireThing.getChildren().addAll(top,sec1,sec4,sec2,sec3, bottom);
 
         StackPane root = new StackPane();
@@ -114,19 +127,23 @@ public class Comp360Project2 extends Application {
         return ProjectTitileLabel;
     }
     
-    public void determineRoom(){
+    public String determineRoom(){
         if (standRoomRB.isSelected()){
            StandardRoom rm = new StandardRoom(this.nameInput.getText(),safeRB.isSelected(),this.arrivalDate.getText(),this.departureDate.getText());
            rm.Display();
+           return rm.results();
         }
         if(deluxeRB.isSelected()){
             DelxueRoom dm = new DelxueRoom(this.nameInput.getText(),safeRB.isSelected(),this.arrivalDate.getText(),this.departureDate.getText());
             dm.Display();
+            return dm.results();
         }
         if(juniorRoomRB.isSelected()){
             JuniorRoom jm = new JuniorRoom(this.nameInput.getText(),safeRB.isSelected(),this.arrivalDate.getText(),this.departureDate.getText());
             jm.Display();
+            return jm.results();
         }
+        return " ";
     }
 
     /**

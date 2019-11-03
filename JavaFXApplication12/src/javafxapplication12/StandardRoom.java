@@ -132,5 +132,12 @@ public class StandardRoom {
        ReserveRoom();
        System.out.println(name + "/n " + price + "/n "+ selectedRoomType + "/n "+ roomNumber);
    }
+     String results(){
+         int price = calculateNights(160);
+         ReserveRoom();
+         String stringPrice = Integer.toString(price);
+         String newResults = stringPrice + "/n " + roomNumber;
+         return newResults;
+    }   
 
 }

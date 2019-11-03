@@ -25,6 +25,12 @@ public class JuniorRoom extends StandardRoom {
        int price = calculateNights(200);
        System.out.println(name + "/n " + price + "/n "+ selectedRoomType + "/n "+ roomNumber);
    }
+       String results(){
+         int price = calculateNights(200);
+         String stringPrice = Integer.toString(price);
+         String newResults = stringPrice + "/n " + roomNumber;
+         return newResults;
+    }   
     
    
     
