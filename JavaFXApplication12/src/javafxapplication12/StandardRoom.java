@@ -20,7 +20,7 @@ import java.util.logging.Logger;
  */
 public class StandardRoom {
    public String name;
-   public String selectedRoomType;
+   public String selectedRoomType = "Standard Room";
    public Date arrival;
    public Date departure;
    public boolean safe;
@@ -28,7 +28,7 @@ public class StandardRoom {
    public boolean []rooms;
    public int roomNumber;
    
-   public void StandardRoom(String name, boolean safe, String arrival, String departure){
+   public StandardRoom(String name, boolean safe, String arrival, String departure){
        this.setRooms(rooms);
        this.setName(name);
        this.setSelectedRoomType("Standard Room");
@@ -37,8 +37,6 @@ public class StandardRoom {
        this.setArrival(arrival);
        this.setDeparture(departure);
        this.ReserveRoom();
-       calculateNights(100);
-       Display();
    }
    public void ReserveRoom(){
       for(int i=0; i< 15; i++){
@@ -50,15 +48,15 @@ public class StandardRoom {
       }
    }
    
-   public void calculateNights(int charge){
-        long diff = departure.getTime() - arrival.getTime();
-        int nights = (int) TimeUnit.DAYS.convert(diff, TimeUnit.MILLISECONDS);
+   public int calculateNights(int charge){
+       long diff = departure.getTime() - arrival.getTime();
+       int nights = (int) TimeUnit.DAYS.convert(diff, TimeUnit.MILLISECONDS);
        if(nights>24){
            nights = nights/24;
        } else {
            nights = 1;
        }
-       price =+ charge*nights;
+       return price =+ charge*nights;
    }
    
    public void setRooms( boolean[]rooms){
@@ -112,7 +110,7 @@ public class StandardRoom {
    }
    
    public void setPrice(){
-       price = 0;
+       price = 100;
    }
    
    public void setSelectedRoomType(String roomType){
@@ -130,7 +128,9 @@ public class StandardRoom {
    }
    
    void Display(){
-       System.out.println(name + price + selectedRoomType + roomNumber);
+       int price = calculateNights(100);
+       ReserveRoom();
+       System.out.println(name + "/n " + price + "/n "+ selectedRoomType + "/n "+ roomNumber);
    }
 
 }

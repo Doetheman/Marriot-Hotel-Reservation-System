@@ -10,10 +10,22 @@ package javafxapplication12;
  * @author Oluchi
  */
 public class JuniorRoom extends StandardRoom {
-    public void juniorRoom(){
-        StandardRoom sR = new StandardRoom();
-        sR.setPrice();
-        sR.ReserveRoom();
+    
+    public JuniorRoom(String name, boolean safe, String arrival, String departure) {
+        super(name, safe, arrival, departure);
+        this.name = name ;
+        this.safe = safe ;
+        this.setArrival(arrival);
+        this.setDeparture(departure);
+        this.calculateNights(200);
     }
+    
+    @Override
+     void Display(){
+       int price = calculateNights(200);
+       System.out.println(name + "/n " + price + "/n "+ selectedRoomType + "/n "+ roomNumber);
+   }
+    
+   
     
 }
