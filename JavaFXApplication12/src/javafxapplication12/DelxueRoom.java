@@ -14,7 +14,7 @@ public class DelxueRoom extends StandardRoom{
     public DelxueRoom(String name, boolean safe, String arrival, String departure) {
         super(name, safe, arrival, departure);
         this.name = name ;
-        this.safe = safe ;
+        this.isSafe = safe ;
         this.setArrival(arrival);
         this.setDeparture(departure);
         calculateNights(160);
@@ -28,7 +28,7 @@ public class DelxueRoom extends StandardRoom{
      String results(){
          int price = calculateNights(160);
          String stringPrice = Integer.toString(price);
-         String newResults = stringPrice + "/n " + roomNumber;
+         String newResults =  "Price: " +  stringPrice + "\n " + "Room Number: "  +  roomNumber;
          return newResults;
     }   
 }

@@ -14,7 +14,7 @@ public class JuniorRoom extends StandardRoom {
     public JuniorRoom(String name, boolean safe, String arrival, String departure) {
         super(name, safe, arrival, departure);
         this.name = name ;
-        this.safe = safe ;
+        this.isSafe = safe ;
         this.setArrival(arrival);
         this.setDeparture(departure);
         this.calculateNights(200);
@@ -28,7 +28,7 @@ public class JuniorRoom extends StandardRoom {
        String results(){
          int price = calculateNights(200);
          String stringPrice = Integer.toString(price);
-         String newResults = stringPrice + "/n " + roomNumber;
+         String newResults = "Price: " +  stringPrice + "\n " + "Room Number: "  +  roomNumber;
          return newResults;
     }   
     

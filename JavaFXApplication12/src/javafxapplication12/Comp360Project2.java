@@ -77,9 +77,6 @@ public class Comp360Project2 extends Application {
                    } else {
                         results.setText("You have not left a comment.");
                    }
-                
-                
-                determineRoom();
               // results.setText();
             }
         });
